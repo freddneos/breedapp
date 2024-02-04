@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol DogBreedServiceProtocol {
+    func getBreedsByName(searchTerm: String) async throws -> [DogBreed]
+    func getBreedsByPage(page: Int, pageLimit: Int) async throws -> [DogBreed]
+    func getBreedById(id: Int) async throws -> DogBreed
+}
