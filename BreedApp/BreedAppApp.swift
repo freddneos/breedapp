@@ -11,7 +11,7 @@ import SwiftUI
 struct BreedAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabNavigationView()
         }
     }
 }
