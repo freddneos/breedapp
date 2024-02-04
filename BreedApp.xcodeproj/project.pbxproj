@@ -11,6 +11,8 @@
 		86A6948E2B6FDE7400BF7BD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6948D2B6FDE7400BF7BD9 /* ContentView.swift */; };
 		86A694902B6FDE7500BF7BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A6948F2B6FDE7500BF7BD9 /* Assets.xcassets */; };
 		86A694932B6FDE7500BF7BD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A694922B6FDE7500BF7BD9 /* Preview Assets.xcassets */; };
+		86A6949B2B6FE14400BF7BD9 /* DogBreedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6949A2B6FE14400BF7BD9 /* DogBreedService.swift */; };
+		86A6949D2B6FE15A00BF7BD9 /* DogBreedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6949C2B6FE15900BF7BD9 /* DogBreedServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		86A6948D2B6FDE7400BF7BD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86A6948F2B6FDE7500BF7BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A694922B6FDE7500BF7BD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		86A6949A2B6FE14400BF7BD9 /* DogBreedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedService.swift; sourceTree = "<group>"; };
+		86A6949C2B6FE15900BF7BD9 /* DogBreedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,13 @@
 		86A6948A2B6FDE7400BF7BD9 /* BreedApp */ = {
 			isa = PBXGroup;
 			children = (
+				86A694A32B6FE2BC00BF7BD9 /* Tests */,
+				86A694A22B6FE2AA00BF7BD9 /* Utils */,
+				86A694A12B6FE29D00BF7BD9 /* Networking */,
+				86A694A02B6FE29000BF7BD9 /* ViewModels */,
+				86A6949F2B6FE27000BF7BD9 /* Models */,
+				86A6949E2B6FE18E00BF7BD9 /* DogBreedImageServide */,
+				86A694992B6FE10400BF7BD9 /* DogBreedService */,
 				86A6948B2B6FDE7400BF7BD9 /* BreedAppApp.swift */,
 				86A6948D2B6FDE7400BF7BD9 /* ContentView.swift */,
 				86A6948F2B6FDE7500BF7BD9 /* Assets.xcassets */,
@@ -65,6 +76,57 @@
 				86A694922B6FDE7500BF7BD9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86A694992B6FE10400BF7BD9 /* DogBreedService */ = {
+			isa = PBXGroup;
+			children = (
+				86A6949A2B6FE14400BF7BD9 /* DogBreedService.swift */,
+				86A6949C2B6FE15900BF7BD9 /* DogBreedServiceProtocol.swift */,
+			);
+			path = DogBreedService;
+			sourceTree = "<group>";
+		};
+		86A6949E2B6FE18E00BF7BD9 /* DogBreedImageServide */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DogBreedImageServide;
+			sourceTree = "<group>";
+		};
+		86A6949F2B6FE27000BF7BD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86A694A02B6FE29000BF7BD9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		86A694A12B6FE29D00BF7BD9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		86A694A22B6FE2AA00BF7BD9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		86A694A32B6FE2BC00BF7BD9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +199,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A6949B2B6FE14400BF7BD9 /* DogBreedService.swift in Sources */,
 				86A6948E2B6FDE7400BF7BD9 /* ContentView.swift in Sources */,
 				86A6948C2B6FDE7400BF7BD9 /* BreedAppApp.swift in Sources */,
+				86A6949D2B6FE15A00BF7BD9 /* DogBreedServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
