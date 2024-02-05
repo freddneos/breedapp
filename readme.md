@@ -2,16 +2,6 @@
 
 This app fetches and displays information about dog breeds using the Dog API.
 
-## Features
-
-- List of dog breeds with images
-- Search for breeds by name
-- Detailed view of a breed
-- Pagination and sorting
-- Grid view option
-- Offline functionality
-- Error handling
-
 ## Getting Started
 
 1. Clone the repository:
@@ -22,7 +12,39 @@ This app fetches and displays information about dog breeds using the Dog API.
 Open the project in Xcode.
 Run the app in a simulator or device.
 
-## TODO LIST for the Dog Breed App Challenge
+# BreedApp Project Overview
+
+## Project Structure
+
+The app's codebase is organized into distinct sections, each serving a specific purpose:
+
+- **Utils/**: Utilities like `CacheManager.swift` for caching, aiming to improve performance and support offline usage.
+
+- **Models/**: Defines `DogBreed` and other models, central to our app's data handling.
+
+- **ViewModels/**: Implements the MVVM pattern with classes such as `DogBreedListViewModel`, ensuring a clear separation between our app's logic and its presentation.
+
+- **Views/**: SwiftUI views (`DogBreedListView`, etc.) that render the user interface, designed to be both functional and intuitive.
+
+- **Services/**: The `DogBreedService` class and others encapsulate all networking logic, keeping it separate from UI code.
+
+- **BreedAppTests/**: Contains unit tests, including mocks and test cases for ViewModels and Services, to verify the app's reliability and behavior.
+
+## Key Features and Decisions
+
+- **Caching**: We opted for `UserDefaults` with a simple cache invalidation strategy to enhance data retrieval speed and offer basic offline functionality.
+
+- **Concurrency**: Embraced Swift's async/await for network communication, aiming for cleaner and more readable asynchronous code.
+
+- **Architecture**: Chose the MVVM design pattern to promote a clean separation of concerns across our app's structure.
+
+### Our Approach to Quality
+
+We've strived to maintain high code quality by:
+
+- Prioritizing essential features and robust implementations.
+- Adhering to Swift and SwiftUI best practices.
+- Designing with future extensibility in mind.
 
 ### Core Functionality
 
@@ -59,23 +81,27 @@ Run the app in a simulator or device.
 
 - [x] **Unit tests coverage.**
   - Provided examples for testing view models: `DogBreedListViewModelTests`, `DogBreedDetailViewModelTests`, and `DogBreedSearchViewModelTests`.
-- [ ] **Offline functionality.**
-  - Not explicitly covered. Consider implementing caching with Core Data or UserDefaults.
+- [x] **Offline functionality.**
+  - Covered with a cache strategy. Consider implementing caching with Core Data or UserDefaults.
 - [x] **Error Handling.**
   - Basic error handling implemented in view models with loading and error message states.
 
 ### Deliverable
 
-- [ ] **Create a complete project in a version-controlled repository.**
+- [x] **Create a complete project in a version-controlled repository.**
   - Ensure the project is committed to a Git repository.
-- [ ] **Perform several commits to show progress.**
+- [x] **Perform several commits to show progress.**
   - Commit history should reflect the development progress and implementation details.
-- [ ] **Share the repository link.**
+- [x] **Share the repository link.**
   - Make the repository public and prepare to share the link.
 
 ### Final Steps
 
-- [ ] **Review and refine the UI/UX design.** Ensure the app's interface is intuitive and visually appealing.
-- [ ] **Conduct thorough testing on different devices and OS versions.** Ensure compatibility and smooth operation across a range of conditions.
-- [ ] **Optimize performance.** Ensure that the app runs smoothly, especially when handling large lists and performing searches.
-- [ ] **Prepare documentation.** Include a README with setup instructions, features, and any other relevant information.
+- [x] **Review and refine the UI/UX design.** Ensure the app's interface is intuitive and visually appealing.
+- [x] **Conduct thorough testing on different devices and OS versions.** Ensure compatibility and smooth operation across a range of conditions.
+- [x] **Optimize performance.** Ensure that the app runs smoothly, especially when handling large lists and performing searches.
+- [x] **Prepare documentation.** Include a README with setup instructions, features, and any other relevant information.
+
+linkedin.com/in/fredericobezerra
+fredd@neosdev.io
+freddneos
