@@ -29,6 +29,7 @@ struct DogBreedListView: View {
                 }
             }
             .navigationTitle("Dog Breeds")
+
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {

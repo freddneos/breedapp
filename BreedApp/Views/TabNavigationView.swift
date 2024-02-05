@@ -10,9 +10,7 @@ import SwiftUI
 struct TabNavigationView: View {
     var body: some View {
         TabView {
-            NavigationView {
-                DogBreedListView()
-            }
+            DogBreedListView()
             .tabItem {
                 Label("Breeds", systemImage: "list.dash")
             }

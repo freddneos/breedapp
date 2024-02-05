@@ -72,12 +72,6 @@ struct TextDescription: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        
-
     }
 }
 
-#Preview {
-    TabNavigationView()
-}
