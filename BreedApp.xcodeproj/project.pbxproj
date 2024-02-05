@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		867AB0822B707DAD0003BEF4 /* MockDogBreedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AB0812B707DAD0003BEF4 /* MockDogBreedService.swift */; };
 		867AB0842B707F090003BEF4 /* DogBreedListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AB0832B707F090003BEF4 /* DogBreedListViewModelTests.swift */; };
+		867AB0862B7085B70003BEF4 /* DogBreedDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867AB0852B7085B70003BEF4 /* DogBreedDetailViewModelTests.swift */; };
 		86A6948C2B6FDE7400BF7BD9 /* BreedAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6948B2B6FDE7400BF7BD9 /* BreedAppApp.swift */; };
 		86A694902B6FDE7500BF7BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A6948F2B6FDE7500BF7BD9 /* Assets.xcassets */; };
 		86A694932B6FDE7500BF7BD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A694922B6FDE7500BF7BD9 /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		867AB0812B707DAD0003BEF4 /* MockDogBreedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDogBreedService.swift; sourceTree = "<group>"; };
 		867AB0832B707F090003BEF4 /* DogBreedListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedListViewModelTests.swift; sourceTree = "<group>"; };
+		867AB0852B7085B70003BEF4 /* DogBreedDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedDetailViewModelTests.swift; sourceTree = "<group>"; };
 		86A694882B6FDE7400BF7BD9 /* BreedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A6948B2B6FDE7400BF7BD9 /* BreedAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedAppApp.swift; sourceTree = "<group>"; };
 		86A6948F2B6FDE7500BF7BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				867AB0832B707F090003BEF4 /* DogBreedListViewModelTests.swift */,
+				867AB0852B7085B70003BEF4 /* DogBreedDetailViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				86A694AF2B6FF0E200BF7BD9 /* DogBreedServiceTest.swift in Sources */,
 				867AB0822B707DAD0003BEF4 /* MockDogBreedService.swift in Sources */,
 				867AB0842B707F090003BEF4 /* DogBreedListViewModelTests.swift in Sources */,
+				867AB0862B7085B70003BEF4 /* DogBreedDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
