@@ -14,6 +14,10 @@ class DogBreedListViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isGridViewActive = false
     @Published var isSorted = false
+    @Published var currentPage = 1
+    @Published var canLoadMorePages = true
+    
+    private let pageLimit = 50
     private var allBreeds: [DogBreed] = []
     
     private let service: DogBreedServiceProtocol
@@ -23,14 +27,18 @@ class DogBreedListViewModel: ObservableObject {
     }
     
     func fetchDogBreeds() {
+        guard !isLoading, canLoadMorePages else { return }
+        
         isLoading = true
         Task {
             do {
-                let breeds = try await service.getBreedsByPage(page: 1, pageLimit: 50)
+                let breeds = try await service.getBreedsByPage(page: currentPage, pageLimit: pageLimit)
                 DispatchQueue.main.async {
-                    self.dogBreeds = breeds
-                    self.allBreeds = breeds
+                    self.dogBreeds.append(contentsOf: breeds)
+                    self.allBreeds.append(contentsOf: breeds)
                     self.isLoading = false
+                    self.currentPage += 1
+                    self.canLoadMorePages = breeds.count == self.pageLimit
                 }
             } catch {
                 DispatchQueue.main.async {
