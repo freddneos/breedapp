@@ -81,8 +81,8 @@ We've strived to maintain high code quality by:
 
 - [x] **Unit tests coverage.**
   - Provided examples for testing view models: `DogBreedListViewModelTests`, `DogBreedDetailViewModelTests`, and `DogBreedSearchViewModelTests`.
-- [x] **Offline functionality.**
-  - Covered with a cache strategy. Consider implementing caching with Core Data or UserDefaults.
+- [Partialy] **Offline functionality.**
+  - Covered with a cache strategy and UserDefault. Consider implementing caching with Core Data or UserDefaults. **ps found a bug on image-cache 🐞
 - [x] **Error Handling.**
   - Basic error handling implemented in view models with loading and error message states.
 
