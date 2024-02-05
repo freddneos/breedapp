@@ -14,9 +14,7 @@ struct TabNavigationView: View {
             .tabItem {
                 Label("Breeds", systemImage: "list.dash")
             }
-            NavigationView {
-               //DogBreedSearchView() // Implement this view similar to DogBreedsView but with search functionality
-            }
+            DogBreedSearchView()
             .tabItem {
                 Label("Search", systemImage: "magnifyingglass")
             }
