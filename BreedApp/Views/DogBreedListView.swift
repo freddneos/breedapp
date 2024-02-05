@@ -21,7 +21,7 @@ struct DogBreedListView: View {
                             .padding()
                         }
                     } else {
-                        List {
+                        List(viewModel.dogBreeds , id: \.self) { breed in
                             breedViews
                             loadingIndicator
                         }
