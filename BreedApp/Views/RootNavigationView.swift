@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabNavigationView: View {
+struct RootNavigationView: View {
     var body: some View {
         TabView {
             DogBreedListView()
@@ -23,6 +23,6 @@ struct TabNavigationView: View {
 }
 
 #Preview {
-    TabNavigationView()
+    RootNavigationView()
 }
 
