@@ -7,34 +7,74 @@
 import Foundation
 
 class DogBreedService: DogBreedServiceProtocol {
+   
     
     private let baseUrl = "https://api.thedogapi.com"
     // TODO: remove from here
     private let apiKey = "live_N9ZV7TcPCxKSdrFXMF0LHD6gKL2FWEyCcfTPMHzpQ51utG21myWaXOiPtrUWOVyN"
+   
+    private let cacheManager = CacheManager.shared
     
+    func cacheKeyForPage(_ page: Int) -> String {
+        "DogBreedsPage_\(page)"
+    }
+    
+    func cacheKeyForBreedId(_ id: Int) -> String {
+        "DogBreed_\(id)"
+    }
+    
+    func cacheKeyForSearchTerm(_ searchTerm: String) -> String {
+        "SearchTerm_\(searchTerm)"
+    }
     
     func addPlusBetweenWords(searchBreedTerm: String) -> String {
         searchBreedTerm.replacingOccurrences(of: " ", with: "+")
     }
     
-    func getBreedsByName(searchTerm: String) async throws -> [DogBreed] {
-        let searchTerm = addPlusBetweenWords(searchBreedTerm: searchTerm)
-        let endpoint = "\(baseUrl)/v1/breeds/search?q=\(searchTerm)"
-        return try await getBreeds(endpoint: endpoint)
+    func getBreedsByPage(page: Int, pageLimit: Int) async throws -> [DogBreed] {
+        let key = cacheKeyForPage(page)
+        if let cachedBreeds: [DogBreed] = cacheManager.getCachedData(forKey: key) {
+            return cachedBreeds
+        } else {
+            let endpoint = "\(baseUrl)/v1/breeds?page=\(page)&limit=\(pageLimit)"
+            guard let url = URL(string: endpoint) else {
+                throw APIError.invalidURL
+            }
+            let breeds: [DogBreed] = try await fetchData(url: url)
+            cacheManager.cacheData(breeds, forKey: key)
+            return breeds
+        }
     }
     
-    func getBreedsByPage(page: Int, pageLimit: Int) async throws -> [DogBreed] {
-        let endpoint = "\(baseUrl)/v1/breeds?page=\(page)&limit=\(pageLimit)"
-        return try await getBreeds(endpoint: endpoint)
+    func getBreedsByName(searchTerm: String) async throws -> [DogBreed] {
+        let key = cacheKeyForSearchTerm(searchTerm)
+        if let cachedBreeds: [DogBreed] = cacheManager.getCachedData(forKey: key) {
+            return cachedBreeds
+        } else {
+            let searchTerm = searchTerm.replacingOccurrences(of: " ", with: "+")
+            let endpoint = "\(baseUrl)/v1/breeds/search?q=\(searchTerm)"
+            guard let url = URL(string: endpoint) else {
+                throw APIError.invalidURL
+            }
+            let breeds: [DogBreed] = try await fetchData(url: url)
+            cacheManager.cacheData(breeds, forKey: key)
+            return breeds
+        }
     }
     
     func getBreedById(id: Int) async throws -> DogBreed {
-        let endpoint = "\(baseUrl)/v1/breeds/\(id)"
-        guard let url = URL(string: endpoint) else {
-            throw APIError.invalidURL
+        let key = cacheKeyForBreedId(id)
+        if let cachedBreed: DogBreed = cacheManager.getCachedData(forKey: key) {
+            return cachedBreed
+        } else {
+            let endpoint = "\(baseUrl)/v1/breeds/\(id)"
+            guard let url = URL(string: endpoint) else {
+                throw APIError.invalidURL
+            }
+            let breed: DogBreed = try await fetchData(url: url)
+            cacheManager.cacheData(breed, forKey: key)
+            return breed
         }
-        
-        return try await fetchData(url: url)
     }
     
     private func getBreeds(endpoint: String) async throws -> [DogBreed] {
@@ -51,13 +91,12 @@ class DogBreedService: DogBreedServiceProtocol {
         request.addValue(apiKey, forHTTPHeaderField: "x-api-key")
         
         let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw APIError.invalidResponse
         }
         
         do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(T.self, from: data)
+            return try JSONDecoder().decode(T.self, from: data)
         } catch {
             throw APIError.invalidData
         }
