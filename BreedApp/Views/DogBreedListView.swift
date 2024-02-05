@@ -29,7 +29,6 @@ struct DogBreedListView: View {
                 }
             }
             .navigationTitle("Dog Breeds")
-
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -54,7 +53,9 @@ struct DogBreedListView: View {
     
     private var breedViews: some View {
         ForEach(viewModel.dogBreeds) { breed in
-            DogBreedView(breed: breed, isGridView: viewModel.isGridViewActive)
+            NavigationLink(destination: DogBreedDetailView(viewModel: DogBreedDetailViewModel(breedId: breed.id))) {
+                DogBreedView(breed: breed, isGridView: viewModel.isGridViewActive)
+            }
         }
     }
     

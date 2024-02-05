@@ -44,12 +44,7 @@ struct DogBreedView: View {
                         .foregroundColor(.gray)
                 }
                 Spacer()
-                Button(action: {
-                    // TODO: implement the navigation to details screen
-                }) {
-                    Image(systemName: "arrow.right.circle")
-                        .foregroundColor(.blue)
-                }
+                
             }
         }
     }
